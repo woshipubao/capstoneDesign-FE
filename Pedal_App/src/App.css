@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+/* 🧭 게이지 */
+.gauge-wrapper {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: 20px auto;
+}
+
+.gauge-base,
+.gauge-needle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+.gauge-needle {
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* 🚦 상태 텍스트 */
+.status-text {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* 🦶 페달 카드 */
+.card-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.card {
+  width: 160px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease-in-out;
+  border: none;
+  letter-spacing: 1px;
+}
+
+.card.accel {
+  background-color: #3b3b3b;
+  color: white;
+  border: 2px solid #999;
+}
+
+.card.brake {
+  background-color: #1e40af;
+  color: white;
+  border: 2px solid #3b82f6;
+}
+
+.card.active {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px #facc15;
+  border: 2px solid #facc15;
+}
+
+/* 🚨 알림 */
+.alert-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  color: #facc15;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 40px 60px;
+  border-radius: 20px;
+  z-index: 9999;
+  animation: blink 1s infinite;
+  text-align: center;
+  box-shadow: 0 0 40px #facc15;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+/* 📋 테이블 */
+table {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  color: white;
+  font-size: 1rem;
+}
+
+th, td {
+  border-bottom: 1px solid #555;
+  padding: 10px;
+  text-align: center;
+}
